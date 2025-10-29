@@ -41,7 +41,7 @@ function Login() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="email">Nombre de usuario:</label>
             </div>
             <div className="input-box">
               <input
