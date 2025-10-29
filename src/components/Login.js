@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,11 +10,13 @@ function Login() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL; // 👈 ahora usamos la variable de entorno
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     try {
-      const response = await axios.post('http://localhost:4000/api/auth/login', {
+      const response = await axios.post(`${API_URL}/auth/login`, {
         email,
         password,
       });
@@ -24,7 +26,6 @@ function Login() {
       setError(err.response?.data?.message || 'Error al iniciar sesión');
     }
   };
-  
 
   return (
     <div className="login-page">
