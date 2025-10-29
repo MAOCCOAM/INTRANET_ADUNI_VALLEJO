@@ -1,0 +1,328 @@
+/* ================================================= */
+/* LeaderboardTable.css - Tabla de Clasificación */
+/* ================================================= */
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.leaderboard-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin: 20px 0;
+  transition: box-shadow 0.3s ease;
+}
+
+.leaderboard-container:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== HEADER DE LA TABLA ===== */
+.leaderboard-header {
+  background: linear-gradient(135deg, #140976 0%, #202977 100%);
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leaderboard-title {
+  margin: 0;
+  color: white;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+.leaderboard-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9em;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* ===== WRAPPER DE LA TABLA ===== */
+.table-wrapper {
+  overflow-x: auto;
+  padding: 0;
+}
+
+/* ===== TABLA ===== */
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+/* ===== ENCABEZADOS ===== */
+.leaderboard-table thead tr {
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.leaderboard-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.col-rank {
+  width: 100px;
+  text-align: center !important;
+}
+
+.col-score {
+  width: 120px;
+  text-align: center !important;
+}
+
+/* ===== FILAS ===== */
+.leaderboard-row {
+  border-bottom: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.leaderboard-row:hover {
+  background: #f8fafc;
+  transform: scale(1.01);
+}
+
+.leaderboard-row:last-child {
+  border-bottom: none;
+}
+
+/* ===== CELDAS ===== */
+.leaderboard-table td {
+  padding: 16px 20px;
+  font-size: 0.95em;
+  color: #334155;
+}
+
+/* ===== COLUMNA DE PUESTO ===== */
+.col-rank {
+  text-align: center;
+}
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  font-weight: 700;
+  font-size: 1.2em;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* ===== MEDALLAS (TOP 3) ===== */
+.leaderboard-row.gold {
+  background: linear-gradient(to right, rgba(255, 215, 0, 0.1), transparent);
+}
+
+.leaderboard-row.gold:hover {
+  background: linear-gradient(to right, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.05));
+}
+
+.leaderboard-row.silver {
+  background: linear-gradient(to right, rgba(192, 192, 192, 0.1), transparent);
+}
+
+.leaderboard-row.silver:hover {
+  background: linear-gradient(to right, rgba(192, 192, 192, 0.15), rgba(192, 192, 192, 0.05));
+}
+
+.leaderboard-row.bronze {
+  background: linear-gradient(to right, rgba(205, 127, 50, 0.1), transparent);
+}
+
+.leaderboard-row.bronze:hover {
+  background: linear-gradient(to right, rgba(205, 127, 50, 0.15), rgba(205, 127, 50, 0.05));
+}
+
+/* ===== COLUMNA DE NOMBRE ===== */
+.student-name {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.leaderboard-row.gold .student-name,
+.leaderboard-row.silver .student-name,
+.leaderboard-row.bronze .student-name {
+  font-weight: 600;
+}
+
+/* ===== COLUMNA DE PUNTAJE ===== */
+.col-score {
+  text-align: center;
+}
+
+.score-value {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.leaderboard-row.gold .score-value {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #92400e;
+}
+
+.leaderboard-row.silver .score-value {
+  background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+  color: #475569;
+}
+
+.leaderboard-row.bronze .score-value {
+  background: linear-gradient(135deg, #cd7f32 0%, #e89f5f 100%);
+  color: #78350f;
+}
+
+/* ===== ESTADO VACÍO ===== */
+.leaderboard-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin: 20px 0;
+}
+
+.empty-icon {
+  font-size: 4em;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.leaderboard-empty p {
+  color: #64748b;
+  font-size: 1em;
+  margin: 0;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.leaderboard-row {
+  animation: fadeIn 0.3s ease-out backwards;
+}
+
+.leaderboard-row:nth-child(1) { animation-delay: 0.05s; }
+.leaderboard-row:nth-child(2) { animation-delay: 0.1s; }
+.leaderboard-row:nth-child(3) { animation-delay: 0.15s; }
+.leaderboard-row:nth-child(4) { animation-delay: 0.2s; }
+.leaderboard-row:nth-child(5) { animation-delay: 0.25s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .leaderboard-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 16px 20px;
+  }
+
+  .leaderboard-title {
+    font-size: 1.2em;
+  }
+
+  .leaderboard-count {
+    font-size: 0.85em;
+    padding: 4px 12px;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 12px 14px;
+    font-size: 0.9em;
+  }
+
+  .col-rank {
+    width: 80px;
+  }
+
+  .col-score {
+    width: 100px;
+  }
+
+  .rank-badge {
+    min-width: 32px;
+    height: 32px;
+    font-size: 1em;
+  }
+
+  .score-value {
+    padding: 4px 12px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .leaderboard-header {
+    padding: 14px 16px;
+  }
+
+  .leaderboard-title {
+    font-size: 1.1em;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 10px 12px;
+    font-size: 0.85em;
+  }
+
+  .col-rank {
+    width: 70px;
+  }
+
+  .col-score {
+    width: 90px;
+  }
+
+  .student-name {
+    font-size: 0.9em;
+  }
+}
+
+/* ===== ACCESIBILIDAD ===== */
+.leaderboard-table:focus-within .leaderboard-row:focus-within {
+  outline: 2px solid #7c3aed;
+  outline-offset: -2px;
+}
+
+/* ===== IMPRESIÓN ===== */
+@media print {
+  .leaderboard-container {
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+  }
+
+  .leaderboard-row:hover {
+    background: none !important;
+  }
+
+  .leaderboard-header {
+    background: #7c3aed !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

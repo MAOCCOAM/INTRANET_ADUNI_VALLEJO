@@ -1,0 +1,41 @@
+/* ================================================= */
+/* index.css - Variables CSS para la temática Cósmica */
+/* ================================================= */
+
+:root {
+    /* --- COLORES BASE --- */
+    --color-fondo-oscuro: #0a0a20;           /* Azul Medianoche Profundo / Espacio */
+    --color-fondo-claro: #14143a;            /* Un tono un poco más claro para cards/secciones */
+    --color-texto-primario: #ffffff;         /* Blanco puro para el texto principal */
+    --color-texto-secundario: #a8a8ff;       /* Azul claro/lila para el texto secundario/ayuda */
+
+    /* --- COLORES DE ACENTO (DEL LOBO Y EL AURA) --- */
+    --color-acento-principal: #8a2be2;      /* Azul Violeta Eléctrico (Lobo) */
+    --color-acento-secundario: #00ffff;     /* Cian Brillante (Lobo) */
+    --color-acento-terciario: #ff00ff;      /* Magenta/Fucsia (Lobo) */
+    --color-alerta-triunfo: #ffcc00;        /* Dorado/Amarillo Brillante (Alas/Aura) */
+    --color-alerta-sacrificio: #ff4500;     /* Rojo/Naranja Intenso (Texto 'Sacrificio') */
+
+    /* --- SOMBRAS Y EFECTOS DE BRILLO (Glow) --- */
+    --sombra-neon-principal: 0 0 10px var(--color-acento-principal),
+                             0 0 20px var(--color-acento-principal);
+    --sombra-neon-dorada: 0 0 8px var(--color-alerta-triunfo),
+                          0 0 15px var(--color-alerta-triunfo);
+    
+    /* --- BORDES Y RADIOS --- */
+    --borde-radio-suave: 8px;
+    --borde-radio-circular: 50%;
+    
+    /* --- TIPOGRAFÍA --- */
+    --fuente-base: 'Arial', sans-serif;
+    --fuente-titulo: 'Georgia', serif; /* o una fuente épica si la importas */
+}
+
+/* Aplicación de estilos iniciales a todo el cuerpo */
+body {
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-primario);
+    font-family: var(--fuente-base);
+    margin: 0;
+    padding: 0;
+}

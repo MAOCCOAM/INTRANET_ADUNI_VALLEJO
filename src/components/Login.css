@@ -1,0 +1,310 @@
+/* ================================================= */
+/* Login.css - Estilos Simples y Elegantes */
+/* ================================================= */
+
+:root {
+  --primary-color: #7c3aed;
+  --accent-color: #f97316;
+  --text-light: rgba(255, 255, 255, 0.9);
+  --text-dim: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== CONTENEDOR DE PÁGINA DE LOGIN ===== */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  background: url('image.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: fixed; /* Asegura que ocupe toda la pantalla */
+  top: 0;
+  left: 0;
+}
+
+/* Capa de overlay para mejor legibilidad */
+.login-page::before {
+  content: '';
+  position: absolute; /* Cambiado de fixed a absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.75);
+  z-index: 1; /* z-index relativo al .login-page */
+}
+
+/* ===== WRAPPER - CONTENEDOR DEL FORMULARIO ===== */
+.wrapper {
+  position: relative;
+  width: 420px;
+  background: rgba(30, 41, 59, 0.4);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.wrapper:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== FORM BOX ===== */
+.wrapper .form-box {
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+/* ===== TÍTULO ===== */
+.form-box h2 {
+  color: #ff1900; /* El color rojo base */
+  
+  font-size: 40px; /* Ajusta el tamaño según sea necesario */
+  
+  
+  /* Crea un efecto de sombra y brillo para el relieve: */
+  text-shadow: 
+    /* Sombra oscura para dar profundidad (parte inferior/derecha) */
+    2px 2px 0px #652525,
+    
+    /* Sombra más clara para el brillo (parte superior/izquierda) */
+    -2px -2px 0px #ef1414,
+    
+    /* Sombra más difusa y brillante para el resplandor general */
+    0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* ===== INPUT BOX ===== */
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid var(--border-color);
+  margin: 30px 0;
+  transition: border-color 0.3s ease;
+}
+
+.input-box:focus-within {
+  border-bottom-color: var(--text-light);
+}
+
+/* ===== LABELS ===== */
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: var(--text-dim);
+  font-weight: 500;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+  color: var(--text-light);
+  font-size: 0.75em;
+}
+
+/* ===== INPUTS ===== */
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: var(--text-light);
+  font-weight: 500;
+  padding: 5px 0;
+}
+
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.input-box input:-webkit-autofill,
+.input-box input:-webkit-autofill:hover,
+.input-box input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-light);
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ===== BOTÓN ===== */
+.btn {
+  width: 100%;
+  height: 45px;
+  background: var(--accent-color);
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  color: white;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.btn:hover {
+  background: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+}
+
+/* ===== ENLACES ADICIONALES ===== */
+.form-box .register-link,
+.form-box .forgot-password {
+  margin-top: 15px;
+  font-size: 0.9em;
+  color: var(--text-dim);
+}
+
+.form-box .register-link a,
+.form-box .forgot-password a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.form-box .register-link a:hover,
+.form-box .forgot-password a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* ===== CHECKBOX ===== */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 0.9em;
+  color: var(--text-dim);
+}
+
+.remember-forgot label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.remember-forgot input[type="checkbox"] {
+  margin-right: 6px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* ===== MENSAJES ===== */
+.message {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.message.error {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+.message.success {
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #336c87;
+}
+
+/* ===== ESTADO DE CARGA ===== */
+.btn.loading {
+  pointer-events: none;
+  opacity: 0.7;
+  position: relative;
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid white;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .form-box h2 {
+    font-size: 1.8em;
+  }
+
+  .wrapper .form-box {
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .wrapper {
+    padding: 15px;
+  }
+
+  .form-box h2 {
+    font-size: 1.6em;
+    margin-bottom: 25px;
+  }
+
+  .wrapper .form-box {
+    padding: 25px 20px;
+  }
+
+  .input-box {
+    margin: 25px 0;
+  }
+
+  .btn {
+    height: 42px;
+  }
+}

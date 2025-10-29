@@ -1,0 +1,371 @@
+/* ===== TEMA: LOBO CELESTIAL - TRIUNFO, SACRIFICIO, MÉRITO ===== */
+
+:root {
+  --cosmic-blue: #1e3a8a;
+  --wolf-purple: #7c3aed;
+  --wolf-pink: #ec4899;
+  --wolf-cyan: #06b6d4;
+  --golden-wing: #fbbf24;
+  --star-white: #f8fafc;
+  --space-dark: #0f172a;
+  --glow-blue: #3b82f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #1e40af 50%, #7c3aed 100%);
+  position: relative;
+}
+
+/* ===== FONDO ESTRELLADO ANIMADO ===== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent),
+    radial-gradient(1px 1px at 15% 45%, white, transparent);
+  background-size: 200% 200%;
+  animation: stars-drift 60s linear infinite;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+@keyframes stars-drift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* ===== EFECTO DE PARTÍCULAS BRILLANTES ===== */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+  animation: cosmic-pulse 8s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes cosmic-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== LOGO DEL LOBO ===== */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.8))
+          drop-shadow(0 0 60px rgba(236, 72, 153, 0.6))
+          drop-shadow(0 0 90px rgba(6, 182, 212, 0.4));
+  position: relative;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: wolf-mystical-float 6s ease-in-out infinite,
+               App-logo-spin 20s linear infinite,
+               wolf-glow-pulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes wolf-mystical-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes wolf-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.8))
+            drop-shadow(0 0 60px rgba(236, 72, 153, 0.6))
+            drop-shadow(0 0 90px rgba(6, 182, 212, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 50px rgba(251, 191, 36, 1))
+            drop-shadow(0 0 100px rgba(124, 58, 237, 0.9))
+            drop-shadow(0 0 150px rgba(236, 72, 153, 0.7));
+  }
+}
+
+/* ===== HEADER CELESTIAL ===== */
+.App-header {
+  background: linear-gradient(180deg, 
+    rgba(15, 23, 42, 0.9) 0%,
+    rgba(30, 58, 138, 0.8) 50%,
+    rgba(124, 58, 237, 0.7) 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 100px rgba(251, 191, 36, 0.2);
+}
+
+/* ===== ALAS DORADAS DE FONDO ===== */
+.App-header::before {
+  content: '✧';
+  position: absolute;
+  font-size: 20rem;
+  color: var(--golden-wing);
+  opacity: 0.1;
+  animation: wings-spread 10s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes wings-spread {
+  0%, 100% { transform: scale(0.8) rotate(-5deg); opacity: 0.1; }
+  50% { transform: scale(1.2) rotate(5deg); opacity: 0.2; }
+}
+
+/* ===== TÍTULOS CON EFECTO DE MÉRITO ===== */
+.App-header h1,
+.App-header h2,
+.App-header h3 {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, 
+    var(--wolf-cyan) 0%, 
+    var(--wolf-purple) 25%, 
+    var(--wolf-pink) 50%, 
+    var(--golden-wing) 75%,
+    var(--wolf-cyan) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 3s linear infinite;
+  text-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ===== PALABRAS CLAVE: TRIUNFO, SACRIFICIO, MÉRITO ===== */
+.virtue-text {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--golden-wing);
+  text-shadow: 
+    0 0 10px rgba(251, 191, 36, 0.8),
+    0 0 20px rgba(251, 191, 36, 0.6),
+    0 0 30px rgba(251, 191, 36, 0.4),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  animation: virtue-glow 2s ease-in-out infinite;
+  margin: 1rem;
+}
+
+@keyframes virtue-glow {
+  0%, 100% { 
+    text-shadow: 
+      0 0 10px rgba(251, 191, 36, 0.8),
+      0 0 20px rgba(251, 191, 36, 0.6),
+      0 0 30px rgba(251, 191, 36, 0.4),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  50% { 
+    text-shadow: 
+      0 0 20px rgba(251, 191, 36, 1),
+      0 0 40px rgba(251, 191, 36, 0.8),
+      0 0 60px rgba(251, 191, 36, 0.6),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* ===== ENLACES CON AURA ===== */
+.App-link {
+  color: var(--wolf-cyan);
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--wolf-cyan);
+  border-radius: 8px;
+  background: rgba(6, 182, 212, 0.1);
+}
+
+.App-link:hover {
+  color: var(--golden-wing);
+  border-color: var(--golden-wing);
+  background: rgba(251, 191, 36, 0.2);
+  box-shadow: 
+    0 0 20px rgba(251, 191, 36, 0.6),
+    0 0 40px rgba(251, 191, 36, 0.4),
+    inset 0 0 20px rgba(251, 191, 36, 0.2);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* ===== BOTONES CELESTIALES ===== */
+.cosmic-button {
+  background: linear-gradient(135deg, var(--wolf-purple), var(--wolf-pink));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 15px rgba(124, 58, 237, 0.4),
+    0 0 30px rgba(236, 72, 153, 0.3);
+}
+
+.cosmic-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.cosmic-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 8px 25px rgba(124, 58, 237, 0.6),
+    0 0 50px rgba(251, 191, 36, 0.5);
+}
+
+.cosmic-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ===== CARDS CON EFECTO LOBO ===== */
+.wolf-card {
+  background: linear-gradient(145deg, 
+    rgba(30, 58, 138, 0.6), 
+    rgba(124, 58, 237, 0.4));
+  border: 2px solid rgba(251, 191, 36, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(251, 191, 36, 0.1);
+  transition: all 0.4s ease;
+}
+
+.wolf-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--golden-wing);
+  box-shadow: 
+    0 12px 48px rgba(124, 58, 237, 0.5),
+    0 0 60px rgba(251, 191, 36, 0.4),
+    inset 0 0 30px rgba(251, 191, 36, 0.2);
+}
+
+/* ===== ANIMACIÓN ROTACIÓN DEL LOGO ===== */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== EFECTO DE TEXTO BRILLANTE ===== */
+.glowing-text {
+  animation: text-glow 2s ease-in-out infinite;
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px var(--wolf-cyan),
+      0 0 10px var(--wolf-purple),
+      0 0 15px var(--wolf-pink);
+  }
+  50% {
+    text-shadow: 
+      0 0 10px var(--golden-wing),
+      0 0 20px var(--wolf-cyan),
+      0 0 30px var(--wolf-purple),
+      0 0 40px var(--wolf-pink);
+  }
+}
+
+/* ===== SCROLL PERSONALIZADO ===== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--space-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--wolf-purple), var(--golden-wing));
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--golden-wing), var(--wolf-pink));
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .virtue-text {
+    font-size: 1.8rem;
+  }
+  
+  .App-logo {
+    height: 30vmin;
+  }
+  
+  .cosmic-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
