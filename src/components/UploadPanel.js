@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './UploadPanel.css';
-
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4000/api";
 function UploadPanel({ modality }) {
   const [file, setFile] = useState(null);
   const [examName, setExamName] = useState('');
@@ -61,7 +61,7 @@ function UploadPanel({ modality }) {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:4000/api/leaderboard/upload', formData, {
+      const response = await axios.post(`${API_URL}/leaderboard/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,

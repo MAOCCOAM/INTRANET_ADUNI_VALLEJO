@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { ROLES, STUDENT_MODALITIES, SCHEDULES, INVESTMENT_TYPES } from '../utils/constants';
 import './RegistrationForm.css';
-
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4000/api";
 function RegistrationForm() {
   // --- Estados del Formulario ---
   const [formData, setFormData] = useState({
@@ -74,7 +74,7 @@ function RegistrationForm() {
     }
 
     try {
-      await axios.post('http://localhost:4000/api/users/create', payload, {
+      await axios.post(`${API_URL}/users/create`, payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage({ type: 'success', content: `Usuario '${formData.email}' creado exitosamente.` });
