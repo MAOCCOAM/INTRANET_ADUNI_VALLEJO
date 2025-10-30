@@ -7,6 +7,10 @@ import LeaderboardTable from './LeaderboardTable';
 import { STUDENT_MODALITIES } from '../utils/constants';
 import './Dashboard.css';
 
+// --- al inicio del archivo, justo debajo de los imports ---
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4000/api";
+
+
 function Dashboard() {
   // --- Estados Generales ---
   const [user, setUser] = useState(null);
@@ -28,7 +32,7 @@ function Dashboard() {
 
       try {
         // 1. Obtener datos del usuario
-        const userResponse = await axios.get('http://localhost:4000/api/auth/me', {
+        const userResponse = await axios.get(`${API_URL}/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const currentUser = userResponse.data;
@@ -36,7 +40,7 @@ function Dashboard() {
 
         // 2. Si es estudiante, obtener sus tablas de posiciones
         if (currentUser.role.name === 'student') {
-          const lbResponse = await axios.get('http://localhost:4000/api/leaderboard', {
+          const lbResponse = await axios.get(`${API_URL}/leaderboard`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           setLeaderboardData(lbResponse.data);
